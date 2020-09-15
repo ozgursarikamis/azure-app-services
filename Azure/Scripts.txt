@@ -1,0 +1,15 @@
+## create appservice plan
+
+az appservice plan create \
+  -g webapps-dev-rg \
+  -n gm-asp-dev-02 \
+  --is-linux \
+  --number-of-workers 1 \
+  --sku S1
+
+## create web app
+az webapp create \
+  -g webapps-dev-rg \
+  -p gm-asp-dev-02 \
+  --runtime "node|10.12" \
+  -n gm-webapp-dev-02
